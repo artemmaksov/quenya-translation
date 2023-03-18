@@ -90,8 +90,7 @@ def sanity_check(
         None
     """
     if len(english_sentences) != len(quenya_sentences):
-        print("Error: Number of sentences does not match!")
-        return
+        raise ValueError("Number of sentences does not match!")
 
     print("Number of sentences in both lists match.")
 
