@@ -1,0 +1,11 @@
+# Ignore common unnecessary files
+.DS_Store
+
+# Ignore contents of the data folder
+/data/*
+
+# Ignore Jupyter Notebook/Lab checkpoint files
+.ipynb_checkpoints/
+
+# Ignore Jupyter Notebook/Lab runtime files
+.jupyter/
