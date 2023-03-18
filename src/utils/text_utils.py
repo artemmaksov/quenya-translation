@@ -1,6 +1,7 @@
 """General text utility functions."""
 import random
 import re
+from typing import List
 
 import textract
 
@@ -8,8 +9,8 @@ import textract
 def read_doc(file_path: str) -> str:
     """Read .doc text content from a given file path.
 
-    The content is extracted using the `textract` library
-    and returned as a string.
+    The content is extracted from old .doc files
+    using the `textract` library and returned as a string.
 
     Args:
         file_path (str): The path to the file to read.
@@ -51,7 +52,7 @@ def remove_square_bracket_content(text: str) -> str:
     return text
 
 
-def is_valid_sentence(sentence):
+def is_valid_sentence(sentence: str) -> bool:
     """Check if a given sentence contains any non-alphanumeric characters.
 
     Args:
@@ -72,8 +73,8 @@ def is_valid_sentence(sentence):
 
 
 def sanity_check(
-        english_sentences: list,
-        quenya_sentences: list,
+        english_sentences: List,
+        quenya_sentences: List,
         num_samples: int = 5) -> None:
     """Perform a sanity check.
 
