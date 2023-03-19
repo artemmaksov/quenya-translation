@@ -72,6 +72,41 @@ def is_valid_sentence(sentence: str) -> bool:
     return any(char.isalnum() for char in sentence.strip())
 
 
+def clean_sentence(text: str) -> str:
+    """Clean a single sentence.
+
+    Args:
+        text (str): a sentence.
+
+    Returns:
+        str: cleaned sentence.
+    """
+    # remove a selection of punctuation
+    characters_to_replace = ['"', "'", '”', '“', '*']
+    for char in characters_to_replace:
+        text.replace(char, '')
+
+    text = text.strip()
+
+    return text
+
+
+def split_sentences(text: str) -> List:
+    """Split a string into sentences.
+
+    Args:
+        text (str): unsplit text.
+
+    Returns:
+        List: list of sentences.
+    """
+    sentences = re.split(r'(?<=[.!?]) *', text)
+
+    sentences = [clean_sentence(s) for s in sentences]
+    sentences = [s for s in sentences if is_valid_sentence(s)]
+    return sentences
+
+
 def sanity_check(
         english_sentences: List,
         quenya_sentences: List,
