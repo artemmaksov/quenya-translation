@@ -1,0 +1,34 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: check-docstring-first
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-ast
+
+  - repo: https://github.com/pycqa/flake8
+    rev: 6.0.0
+    hooks:
+      - id: flake8
+        max-line-length: 80
+        additional_dependencies: [flake8-docstrings, pep8-naming]
+
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.1.1
+    hooks:
+      - id: mypy
+        args: [--disallow-untyped-defs, --ignore-missing-imports]
+        additional_dependencies: [types-all]
+
+  - repo: https://github.com/pycqa/isort
+    rev: 5.12.0
+    hooks:
+        - id: isort
+          name: isort (python)
+
+  - repo: https://github.com/pycqa/pydocstyle
+    rev: 6.3.0
+    hooks:
+        - id: pydocstyle
