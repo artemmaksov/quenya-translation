@@ -82,9 +82,9 @@ def clean_sentence(text: str) -> str:
         str: cleaned sentence.
     """
     # remove a selection of punctuation
-    characters_to_replace = ['"', "'", '”', '“', '*']
+    characters_to_replace = ['"', '”', '“', '*', '»']
     for char in characters_to_replace:
-        text.replace(char, '')
+        text = text.replace(char, '')
 
     text = text.strip()
 
